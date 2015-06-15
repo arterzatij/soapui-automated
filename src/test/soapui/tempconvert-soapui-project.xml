@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="608c0cba-632a-4ea8-ab25-bb2f2bc67bc2" activeEnvironment="Default" name="tempconvert" resourceRoot="" soapui-version="5.1.3" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="10d723b8-4880-4e31-87da-c809888aebd2" wsaVersion="NONE" name="TempConvertSoap" type="wsdl" bindingName="{http://www.w3schools.com/webservices/}TempConvertSoap" soapVersion="1_1" anonymous="optional" definition="http://www.w3schools.com/webservices/tempconvert.asmx?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://www.w3schools.com/webservices/tempconvert.asmx?wsdl"><con:part><con:url>http://www.w3schools.com/webservices/tempconvert.asmx?wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.w3schools.com/webservices/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.w3schools.com/webservices/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.w3schools.com/webservices/">
+      <s:element name="FahrenheitToCelsius">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Fahrenheit" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FahrenheitToCelsiusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FahrenheitToCelsiusResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CelsiusToFahrenheit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Celsius" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CelsiusToFahrenheitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CelsiusToFahrenheitResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string"/>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="FahrenheitToCelsiusSoapIn">
+    <wsdl:part name="parameters" element="tns:FahrenheitToCelsius"/>
+  </wsdl:message>
+  <wsdl:message name="FahrenheitToCelsiusSoapOut">
+    <wsdl:part name="parameters" element="tns:FahrenheitToCelsiusResponse"/>
+  </wsdl:message>
+  <wsdl:message name="CelsiusToFahrenheitSoapIn">
+    <wsdl:part name="parameters" element="tns:CelsiusToFahrenheit"/>
+  </wsdl:message>
+  <wsdl:message name="CelsiusToFahrenheitSoapOut">
+    <wsdl:part name="parameters" element="tns:CelsiusToFahrenheitResponse"/>
+  </wsdl:message>
+  <wsdl:message name="FahrenheitToCelsiusHttpPostIn">
+    <wsdl:part name="Fahrenheit" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="FahrenheitToCelsiusHttpPostOut">
+    <wsdl:part name="Body" element="tns:string"/>
+  </wsdl:message>
+  <wsdl:message name="CelsiusToFahrenheitHttpPostIn">
+    <wsdl:part name="Celsius" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="CelsiusToFahrenheitHttpPostOut">
+    <wsdl:part name="Body" element="tns:string"/>
+  </wsdl:message>
+  <wsdl:portType name="TempConvertSoap">
+    <wsdl:operation name="FahrenheitToCelsius">
+      <wsdl:input message="tns:FahrenheitToCelsiusSoapIn"/>
+      <wsdl:output message="tns:FahrenheitToCelsiusSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="CelsiusToFahrenheit">
+      <wsdl:input message="tns:CelsiusToFahrenheitSoapIn"/>
+      <wsdl:output message="tns:CelsiusToFahrenheitSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="TempConvertHttpPost">
+    <wsdl:operation name="FahrenheitToCelsius">
+      <wsdl:input message="tns:FahrenheitToCelsiusHttpPostIn"/>
+      <wsdl:output message="tns:FahrenheitToCelsiusHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="CelsiusToFahrenheit">
+      <wsdl:input message="tns:CelsiusToFahrenheitHttpPostIn"/>
+      <wsdl:output message="tns:CelsiusToFahrenheitHttpPostOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TempConvertSoap" type="tns:TempConvertSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="FahrenheitToCelsius">
+      <soap:operation soapAction="http://www.w3schools.com/webservices/FahrenheitToCelsius" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CelsiusToFahrenheit">
+      <soap:operation soapAction="http://www.w3schools.com/webservices/CelsiusToFahrenheit" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TempConvertSoap12" type="tns:TempConvertSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="FahrenheitToCelsius">
+      <soap12:operation soapAction="http://www.w3schools.com/webservices/FahrenheitToCelsius" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CelsiusToFahrenheit">
+      <soap12:operation soapAction="http://www.w3schools.com/webservices/CelsiusToFahrenheit" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TempConvertHttpPost" type="tns:TempConvertHttpPost">
+    <http:binding verb="POST"/>
+    <wsdl:operation name="FahrenheitToCelsius">
+      <http:operation location="/FahrenheitToCelsius"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CelsiusToFahrenheit">
+      <http:operation location="/CelsiusToFahrenheit"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TempConvert">
+    <wsdl:port name="TempConvertSoap" binding="tns:TempConvertSoap">
+      <soap:address location="http://www.w3schools.com/webservices/tempconvert.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="TempConvertSoap12" binding="tns:TempConvertSoap12">
+      <soap12:address location="http://www.w3schools.com/webservices/tempconvert.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="TempConvertHttpPost" binding="tns:TempConvertHttpPost">
+      <http:address location="http://www.w3schools.com/webservices/tempconvert.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://www.w3schools.com/webservices/tempconvert.asmx</con:endpoint></con:endpoints><con:operation id="46c86871-9d26-4449-9256-8c42903e2ddd" isOneWay="false" action="http://www.w3schools.com/webservices/CelsiusToFahrenheit" name="CelsiusToFahrenheit" bindingOperationName="CelsiusToFahrenheit" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="27986b3b-8f7c-4b88-8dd7-b14c43a38d95" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.w3schools.com/webservices/tempconvert.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.w3schools.com/webservices/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:CelsiusToFahrenheit>
+         <!--Optional:-->
+         <web:Celsius>${#Project#temp_c}</web:Celsius>
+      </web:CelsiusToFahrenheit>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.w3schools.com/webservices/CelsiusToFahrenheit"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="87d0c1ee-d912-42ac-92a7-c860d5919680" isOneWay="false" action="http://www.w3schools.com/webservices/FahrenheitToCelsius" name="FahrenheitToCelsius" bindingOperationName="FahrenheitToCelsius" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="cf5894c6-21c9-4589-bed4-06386c2286a1" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.w3schools.com/webservices/tempconvert.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.w3schools.com/webservices/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:FahrenheitToCelsius>
+         <!--Optional:-->
+         <web:Fahrenheit>?</web:Fahrenheit>
+      </web:FahrenheitToCelsius>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.w3schools.com/webservices/FahrenheitToCelsius"/></con:call></con:operation></con:interface><con:testSuite id="5128da3d-59a9-47c5-9c18-2992990cc212" name="TestSuite_TemConverter"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="9c8800c5-1373-4020-9cc0-5d4cf355314f" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="FahrenheitToCelsius" searchProperties="true"><con:settings/><con:testStep type="request" id="b0b38540-26f8-4e4f-808b-8d928ec1fbc1" name="FahrenheitToCelsius - Valid Request"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>TempConvertSoap</con:interface><con:operation>FahrenheitToCelsius</con:operation><con:request name="FahrenheitToCelsius - Valid Request" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="067c1910-32cf-4cfe-b4c9-096417549576"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.w3schools.com/webservices/tempconvert.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.w3schools.com/webservices/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:FahrenheitToCelsius>
+         <!--Optional:-->
+         <web:Fahrenheit>${#Project#temp_f}</web:Fahrenheit>
+      </web:FahrenheitToCelsius>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="73796e1c-1cc4-41fb-a139-ca69e8d58fb2" name="SOAP Response"/><con:assertion type="SOAP Fault Assertion" id="a481cd2d-79b0-4634-a724-d86346a9a185" name="Not SOAP Fault"/><con:assertion type="XPath Match" id="c54ab844-be05-4398-b3ef-d10cdf79f146" name="XPath Match"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://www.w3schools.com/webservices/';
+/soap:Envelope/soap:Body/ns1:FahrenheitToCelsiusResponse/ns1:FahrenheitToCelsiusResult</path><content>${#Project#temp_c_e}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.w3schools.com/webservices/FahrenheitToCelsius"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="949122a8-1259-4069-bf0a-60afe38e1354" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CelciusToFahrenheit" searchProperties="true"><con:settings/><con:testStep type="request" id="206ccd8e-6bfd-4074-81f3-ca2790a39315" name="CelsiusToFahrenheit - Valid Request"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>TempConvertSoap</con:interface><con:operation>CelsiusToFahrenheit</con:operation><con:request name="CelsiusToFahrenheit - Valid Request" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="19bb62cc-7068-423f-ba6e-6e8771ccff62"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.w3schools.com/webservices/tempconvert.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.w3schools.com/webservices/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:CelsiusToFahrenheit>
+         <!--Optional:-->
+         <web:Celsius>${#Project#temp_c}</web:Celsius>
+      </web:CelsiusToFahrenheit>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="478e8f4c-d334-4422-9c52-1dab3d4265ef" name="SOAP Response"/><con:assertion type="SOAP Fault Assertion" id="9dc34bf6-16ea-449f-b358-0dc4cf928355" name="Not SOAP Fault"/><con:assertion type="XPath Match" id="bac76020-c9eb-4e05-b0a2-f18f9844e98b" name="XPath Match"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://www.w3schools.com/webservices/';
+/soap:Envelope/soap:Body/ns1:CelsiusToFahrenheitResponse/ns1:CelsiusToFahrenheitResult</path><content>${#Project#temp_f_e}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.w3schools.com/webservices/CelsiusToFahrenheit"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties><con:property><con:name>temp_c</con:name><con:value>35</con:value></con:property><con:property><con:name>temp_c_e</con:name><con:value>40</con:value></con:property><con:property><con:name>temp_f</con:name><con:value>104</con:value></con:property><con:property><con:name>temp_f_e</con:name><con:value>95</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>
