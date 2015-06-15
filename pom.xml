@@ -5,6 +5,34 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>soapUI Automated</name>
   <description>Run testcases on soapUI</description>
+  <build>
+    <plugins>            
+       <plugin>
+         <groupId>eviware</groupId>
+         <artifactId>maven-soapui-plugin</artifactId>
+         <version>3.6.1</version>
+            <executions>
+               <execution>
+                  <id>TempConverterTests</id>
+                  <goals>
+                     <goal>test</goal> 
+                  </goals>
+                  <phase>test</phase>           
+               </execution>
+            </executions>                       
+            <configuration>
+               <projectFile>src/test/soapui/tempconvert-soapui-project.xml</projectFile>
+               <host>www.w3schools.com</host>
+               <outputFolder>${project.build.directory}/surefire-reports</outputFolder>
+               <junitReport>true</junitReport>
+               <printReport>false</printReport>
+               <projectProperties>
+                  <projectProperty>temp_c=35</projectProperty>
+               </projectProperties>
+            </configuration>
+         </plugin>   
+      </plugins>
+   </build>      
   <url>http://www.soapui.org/test-automation/maven/maven-2-x.html</url>
   <scm>
   	<developerConnection>arterzatij</developerConnection>
@@ -18,4 +46,10 @@
   	<name>hubware</name>
   	<url>https://github.com/Hubware</url>
   </organization>
+  <pluginRepositories>
+    <pluginRepository>
+        <id>smartbear-sweden-plugin-repository</id>
+        <url>http://www.soapui.org/repository/maven2/</url>
+    </pluginRepository>
+</pluginRepositories>
 </project>
