@@ -1,0 +1,21 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.ernestoarteaga.soapui</groupId>
+  <artifactId>soapui-automated</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>soapUI Automated</name>
+  <description>Run testcases on soapUI</description>
+  <url>http://www.soapui.org/test-automation/maven/maven-2-x.html</url>
+  <scm>
+  	<developerConnection>arterzatij</developerConnection>
+  	<url>https://github.com/arterzatij/soapui-automated</url>
+  </scm>
+  <issueManagement>
+  	<url>https://github.com/arterzatij/soapui-automated/issues</url>
+  	<system>github</system>
+  </issueManagement>
+  <organization>
+  	<name>hubware</name>
+  	<url>https://github.com/Hubware</url>
+  </organization>
+</project>
